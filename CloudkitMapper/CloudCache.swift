@@ -17,13 +17,9 @@ public class CloudCache<T:CloudObject> {
     
     public func rac_storeLocally<T:CloudObject>(data:[T], cachingKey:String? = nil) -> SignalProducer<Void, CloudError> {
         return SignalProducer<Void, CloudError> { observer, _ in
-            if let dataT = data as? [T]{
-                self.storeData(dataT, cachingKey: cachingKey, completion: { error in
+                self.storeData(data , cachingKey: cachingKey, completion: { error in
                     observer.sendCompleted()
                 })
-            } else {
-                observer.sendFailed(.errorSavingLocally)
-            }
         }
         
     }
@@ -44,8 +40,8 @@ public class CloudCache<T:CloudObject> {
     
     public func rac_restoreLocally<T:CloudObject>(cachingKey:String? = nil) -> SignalProducer<[T], CloudError> {
         return SignalProducer<[T], CloudError> { observer, _ in
-                let objects  = self.loadData(cachingKey)
-                observer.sendNext(objects)
+                let objects  = self.loadData(cachingKey ?? self.defaultKey)
+                observer.sendNext(objects as! [T])
                 observer.sendCompleted()
         }
         

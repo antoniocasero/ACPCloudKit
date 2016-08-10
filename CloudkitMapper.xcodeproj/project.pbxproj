@@ -16,6 +16,7 @@
 		C49DF1751D58C368003F3172 /* CloudkitMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49DF16A1D58C368003F3172 /* CloudkitMapper.framework */; };
 		C49DF17A1D58C368003F3172 /* CloudkitMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49DF1791D58C368003F3172 /* CloudkitMapperTests.swift */; };
 		C49DF18A1D58C41C003F3172 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49DF1891D58C41C003F3172 /* CloudKit.framework */; };
+		C4C752CE1D5B02DB00EEA1FA /* CloudCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C752CD1D5B02DB00EEA1FA /* CloudCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		C49DF1791D58C368003F3172 /* CloudkitMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitMapperTests.swift; sourceTree = "<group>"; };
 		C49DF17B1D58C368003F3172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49DF1891D58C41C003F3172 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		C4C752CD1D5B02DB00EEA1FA /* CloudCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				C47EAB801D5A04A200CF3429 /* CloudObject.swift */,
 				C47EAB821D5A04AD00CF3429 /* CloudCache.swift */,
 				C47EAB841D5A04BD00CF3429 /* CloudObject+Operations.swift */,
+				C4C752CD1D5B02DB00EEA1FA /* CloudCoordinator.swift */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C752CE1D5B02DB00EEA1FA /* CloudCoordinator.swift in Sources */,
 				C47EAB831D5A04AD00CF3429 /* CloudCache.swift in Sources */,
 				C47EAB811D5A04A200CF3429 /* CloudObject.swift in Sources */,
 				C47EAB851D5A04BD00CF3429 /* CloudObject+Operations.swift in Sources */,
