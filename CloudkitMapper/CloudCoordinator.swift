@@ -21,6 +21,17 @@ public class CloudCoordinator<T:CloudObject> {
     public init() {
         localCache.defaultKey = model.recordType
     }
+    
+    public func fetchObjects<T>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
+        return SignalProducer { observer, _ in
+            let predicate = predicate ?? NSPredicate(value: true)
+            let query = CKQuery(recordType: self.model.recordType, predicate: predicate)
+            query.
+            
+        }
+        
+        return []
+    }
 
 
 }
