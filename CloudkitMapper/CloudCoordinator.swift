@@ -22,15 +22,30 @@ public class CloudCoordinator<T:CloudObject> {
         localCache.defaultKey = model.recordType
     }
     
-    public func fetchObjects<T>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
+    public func fetchObjects<T:CloudObject>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
         return SignalProducer { observer, _ in
             let predicate = predicate ?? NSPredicate(value: true)
             let query = CKQuery(recordType: self.model.recordType, predicate: predicate)
-            query.
-            
+            self.model.currentDatabase.performQuery(query, inZoneWithID: nil, completionHandler: { records, error in
+                guard error == nil else {
+                    observer.sendFailed(.errorOperation)
+                    return
+                }
+                let models = records?.map({ (recordFetched) -> T in
+                    let cloudModel = T()
+                    cloudModel.record = recordFetched
+                    return cloudModel
+                }) ?? []
+                observer.sendNext(models)
+                observer.sendCompleted()
+            })
         }
         
-        return []
+    }
+    
+    public func fetchLocallyAndThenRequestObjects<T:CloudObject>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
+        return self.localCache.rac_restoreLocally()
+        .concat(self.fetchObjects(name, predicate: predicate))
     }
 
 
