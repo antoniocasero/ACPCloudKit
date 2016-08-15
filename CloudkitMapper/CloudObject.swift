@@ -9,7 +9,7 @@
 import Foundation
 import CloudKit
 
-public class CloudObject {
+public class CloudObject : NSObject {
     
     public var recordType:String = ""
     public var record:CKRecord?
@@ -54,4 +54,25 @@ public class CloudObject {
             return nil
         }
     }
+    
+    public func propertyNames() -> [String] {
+        return Mirror(reflecting: self).children.flatMap { $0.label }
+    }
+    
+    public func updatedRecord() -> CKRecord? {
+        if let record = self.record {
+            let properties = propertyNames()
+            for property in properties {
+                if let value = self.valueForKey(property) as? CKRecordValue {
+                    record[property] = value
+                } else {
+                    record[property] =
+                }
+            }
+            return record
+        }
+        return nil
+    }
 }
+
+

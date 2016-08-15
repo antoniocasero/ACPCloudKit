@@ -87,4 +87,7 @@ public extension CloudObject {
             self.record?[referenceName] = CKReference(record: givenRecord, action: CKReferenceAction.None)
         }
     }
+    
+
+
 }

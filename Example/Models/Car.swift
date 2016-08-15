@@ -17,6 +17,7 @@ final class Car : CloudObject {
         super.init()
         self.recordType = "Car"
         super.initializeRecord()
+        print("Properties \(self.propertyNames())")
     }
     
     
