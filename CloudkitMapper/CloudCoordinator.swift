@@ -22,30 +22,50 @@ public class CloudCoordinator<T:CloudObject> {
         localCache.defaultKey = model.recordType
     }
     
-    public func fetchObjects<T:CloudObject>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
-        return SignalProducer { observer, _ in
+    
+    public func deepFetch(predicate:NSPredicate?) -> SignalProducer<[T],CloudError> {
+        var array : [T] = []
+        return self.fetchObjects(predicate)
+            .on(next: { object in
+                array.append(object)
+            })
+
+            .flatMap(.Merge) { (cloud) -> SignalProducer<T, CloudError> in
+                return cloud.rac_fetchReferences()
+            }
+            .collect().on(completed: { 
+                print("Completed puto")
+            })
+            .map({ _ in
+                return array
+            })
+    }
+    
+    public func fetchObjects(predicate:NSPredicate?) -> SignalProducer<T,CloudError> {
+        let signalFetch = SignalProducer<T,CloudError> { observer, _ in
             let predicate = predicate ?? NSPredicate(value: true)
-            let query = CKQuery(recordType: self.model.recordType, predicate: predicate)
+            let type = self.model.recordType
+            let query = CKQuery(recordType: type, predicate: predicate)
             self.model.currentDatabase.performQuery(query, inZoneWithID: nil, completionHandler: { records, error in
                 guard error == nil else {
                     observer.sendFailed(.errorOperation)
                     return
                 }
-                let models = records?.map({ (recordFetched) -> T in
+                let _ : [T] = records?.map({ (recordFetched) -> T in
                     let cloudModel = T()
-                    cloudModel.record = recordFetched
+                    cloudModel.populate(recordFetched)
+                    observer.sendNext(cloudModel)
                     return cloudModel
                 }) ?? []
-                observer.sendNext(models)
                 observer.sendCompleted()
             })
         }
-        
+        return signalFetch
     }
-    
-    public func fetchLocallyAndThenRequestObjects<T:CloudObject>(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
+        
+    public func fetchLocallyAndThenRequestObjects(name:String, predicate:NSPredicate) -> SignalProducer<[T],CloudError> {
         return self.localCache.rac_restoreLocally()
-        .concat(self.fetchObjects(name, predicate: predicate))
+        .concat(self.fetchObjects(predicate).collect())
     }
 
 

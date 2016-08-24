@@ -10,15 +10,17 @@ import Foundation
 import CloudkitMapper
 
 final class Car : CloudObject {
-    var name : String!
-    var wheel : Wheel!
+
     
-    required init() {
+     required init() {
         super.init()
         self.recordType = "Car"
         super.initializeRecord()
         print("Properties \(self.propertyNames())")
     }
     
+    var name:String?
+    
+    var wheel:Wheel?
     
 }

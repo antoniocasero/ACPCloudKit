@@ -9,9 +9,7 @@
 import Foundation
 import CloudkitMapper
 
- final class Wheel : CloudObject {
-    var name : String!
-    var number : Int!
+final  class Wheel : CloudObject {
     
     required init() {
         super.init()
@@ -20,6 +18,8 @@ import CloudkitMapper
     }
     
     
-
+    var name:String?
+    var number:NSNumber?
+    
     
 }
