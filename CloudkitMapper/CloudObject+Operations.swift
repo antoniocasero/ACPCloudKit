@@ -76,15 +76,19 @@ public extension CloudObject {
             cloudModel.record = record
             return cloudModel
         }
-
-        
     }
     
      public func rac_fetchReferences<T:CloudObject>() -> SignalProducer<T, CloudError> {
         return self.references.rx_loop()
             .flatMap(.Merge) { (key : String, value : CKReference) -> SignalProducer<T, CloudError> in
                 return self.rac_fetchReference(key)
+                    .on(next: { model in
+                        //I need to assign this model to the object. (with the key)
+                        //We need the key.
+                        self.setValue(model, forKey: key)
+                    })
         }
+        
     }
     
     
@@ -107,10 +111,10 @@ public extension CloudObject {
     
      func fetchReferenceRecord(reference:CKReference, observer: Observer<CKRecord?, CloudError>) {
             self.currentDatabase.fetchRecordWithID(reference.recordID, completionHandler: { (record, error) -> Void in
-                guard error == nil && record?.recordID != nil else {
-                    observer.sendFailed(.errorOperation)
-                    return
-                }
+//                guard error == nil && record?.recordID != nil else {
+//                    observer.sendFailed(.errorOperation)
+//                    return
+//                }
                 observer.sendNext(record)
                 observer.sendCompleted()
             })
