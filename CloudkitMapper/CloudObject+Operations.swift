@@ -16,6 +16,7 @@ public typealias NoError = Result.NoError
 public enum CloudError : ErrorType {
     case errorOperation
     case errorSavingLocally
+    case errorUnathorized
 }
 
 extension Array {

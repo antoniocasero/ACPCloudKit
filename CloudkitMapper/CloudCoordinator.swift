@@ -18,6 +18,8 @@ public class CloudCoordinator<T:CloudObject> {
     
     var fetchedRecords = Array<T>()
     
+    let login = CloudLogin();
+    
     public init() {
         localCache.defaultKey = model.recordType
     }
