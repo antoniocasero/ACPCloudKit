@@ -14,13 +14,13 @@
 		452B877E1D5BA78500F9094D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 452B877C1D5BA78500F9094D /* LaunchScreen.storyboard */; };
 		452B87901D5BA7C300F9094D /* CloudkitMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452B878B1D5BA7B300F9094D /* CloudkitMapper.framework */; };
 		452B87911D5BA7C300F9094D /* CloudkitMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452B878B1D5BA7B300F9094D /* CloudkitMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		452B87971D5BA7DB00F9094D /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452B87951D5BA7DB00F9094D /* ReactiveCocoa.framework */; };
-		452B87981D5BA7DB00F9094D /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452B87951D5BA7DB00F9094D /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		452B87991D5BA7DB00F9094D /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452B87961D5BA7DB00F9094D /* Result.framework */; };
-		452B879A1D5BA7DB00F9094D /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 452B87961D5BA7DB00F9094D /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		452B879C1D5BA7F100F9094D /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 452B879B1D5BA7F100F9094D /* CloudKit.framework */; };
 		452B87A01D5BA8B900F9094D /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B879F1D5BA8B900F9094D /* Car.swift */; };
 		452B87A31D5BA8D600F9094D /* Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B87A21D5BA8D600F9094D /* Wheel.swift */; };
+		45BE37771D91BF99005034B6 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BE37751D91BF99005034B6 /* ReactiveSwift.framework */; };
+		45BE37781D91BF99005034B6 /* ReactiveSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45BE37751D91BF99005034B6 /* ReactiveSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		45BE37791D91BF99005034B6 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45BE37761D91BF99005034B6 /* Result.framework */; };
+		45BE377A1D91BF99005034B6 /* Result.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 45BE37761D91BF99005034B6 /* Result.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +61,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				452B879A1D5BA7DB00F9094D /* Result.framework in Embed Frameworks */,
+				45BE377A1D91BF99005034B6 /* Result.framework in Embed Frameworks */,
 				452B87911D5BA7C300F9094D /* CloudkitMapper.framework in Embed Frameworks */,
-				452B87981D5BA7DB00F9094D /* ReactiveCocoa.framework in Embed Frameworks */,
+				45BE37781D91BF99005034B6 /* ReactiveSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -79,12 +79,12 @@
 		452B877D1D5BA78500F9094D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		452B877F1D5BA78500F9094D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		452B87851D5BA7B300F9094D /* CloudkitMapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = CloudkitMapper.xcodeproj; sourceTree = "<group>"; };
-		452B87951D5BA7DB00F9094D /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/iOS/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		452B87961D5BA7DB00F9094D /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		452B879B1D5BA7F100F9094D /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		452B879E1D5BA82700F9094D /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Example.entitlements; sourceTree = "<group>"; };
 		452B879F1D5BA8B900F9094D /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Car.swift; path = Models/Car.swift; sourceTree = "<group>"; };
 		452B87A21D5BA8D600F9094D /* Wheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Wheel.swift; path = Models/Wheel.swift; sourceTree = "<group>"; };
+		45BE37751D91BF99005034B6 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
+		45BE37761D91BF99005034B6 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,9 +93,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				452B879C1D5BA7F100F9094D /* CloudKit.framework in Frameworks */,
-				452B87991D5BA7DB00F9094D /* Result.framework in Frameworks */,
 				452B87901D5BA7C300F9094D /* CloudkitMapper.framework in Frameworks */,
-				452B87971D5BA7DB00F9094D /* ReactiveCocoa.framework in Frameworks */,
+				45BE37771D91BF99005034B6 /* ReactiveSwift.framework in Frameworks */,
+				45BE37791D91BF99005034B6 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,9 +147,9 @@
 		452B879D1D5BA80200F9094D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				45BE37751D91BF99005034B6 /* ReactiveSwift.framework */,
+				45BE37761D91BF99005034B6 /* Result.framework */,
 				452B879B1D5BA7F100F9094D /* CloudKit.framework */,
-				452B87951D5BA7DB00F9094D /* ReactiveCocoa.framework */,
-				452B87961D5BA7DB00F9094D /* Result.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +199,7 @@
 					452B876F1D5BA78400F9094D = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 9HX8L3BY3M;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -400,6 +401,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uttopia.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -417,6 +419,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.uttopia.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -7,30 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		458D7D0C1D91BA78004F958E /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47EAB871D5A0CB300CF3429 /* Result.framework */; };
+		458D7D0E1D91BA79004F958E /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 458D7D0D1D91BA79004F958E /* ReactiveSwift.framework */; };
 		C47EAB811D5A04A200CF3429 /* CloudObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EAB801D5A04A200CF3429 /* CloudObject.swift */; };
 		C47EAB831D5A04AD00CF3429 /* CloudCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EAB821D5A04AD00CF3429 /* CloudCache.swift */; };
 		C47EAB851D5A04BD00CF3429 /* CloudObject+Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47EAB841D5A04BD00CF3429 /* CloudObject+Operations.swift */; };
-		C47EAB881D5A0CB300CF3429 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47EAB861D5A0CB300CF3429 /* ReactiveCocoa.framework */; };
-		C47EAB891D5A0CB300CF3429 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C47EAB871D5A0CB300CF3429 /* Result.framework */; };
 		C49DF16E1D58C368003F3172 /* CloudkitMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = C49DF16D1D58C368003F3172 /* CloudkitMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C49DF1751D58C368003F3172 /* CloudkitMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49DF16A1D58C368003F3172 /* CloudkitMapper.framework */; };
-		C49DF17A1D58C368003F3172 /* CloudkitMapperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49DF1791D58C368003F3172 /* CloudkitMapperTests.swift */; };
 		C49DF18A1D58C41C003F3172 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C49DF1891D58C41C003F3172 /* CloudKit.framework */; };
 		C4C1C21A1D7998B000B9B6C1 /* CloudLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C1C2191D7998B000B9B6C1 /* CloudLogin.swift */; };
 		C4C752CE1D5B02DB00EEA1FA /* CloudCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C752CD1D5B02DB00EEA1FA /* CloudCoordinator.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		C49DF1761D58C368003F3172 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = C49DF1611D58C368003F3172 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = C49DF1691D58C368003F3172;
-			remoteInfo = CloudkitMapper;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		458D7D0D1D91BA79004F958E /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		C47EAB801D5A04A200CF3429 /* CloudObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudObject.swift; sourceTree = "<group>"; };
 		C47EAB821D5A04AD00CF3429 /* CloudCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudCache.swift; sourceTree = "<group>"; };
 		C47EAB841D5A04BD00CF3429 /* CloudObject+Operations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CloudObject+Operations.swift"; sourceTree = "<group>"; };
@@ -39,7 +28,6 @@
 		C49DF16A1D58C368003F3172 /* CloudkitMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CloudkitMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49DF16D1D58C368003F3172 /* CloudkitMapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CloudkitMapper.h; sourceTree = "<group>"; };
 		C49DF16F1D58C368003F3172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C49DF1741D58C368003F3172 /* CloudkitMapperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CloudkitMapperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C49DF1791D58C368003F3172 /* CloudkitMapperTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitMapperTests.swift; sourceTree = "<group>"; };
 		C49DF17B1D58C368003F3172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C49DF1891D58C41C003F3172 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -53,16 +41,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C49DF18A1D58C41C003F3172 /* CloudKit.framework in Frameworks */,
-				C47EAB881D5A0CB300CF3429 /* ReactiveCocoa.framework in Frameworks */,
-				C47EAB891D5A0CB300CF3429 /* Result.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C49DF1711D58C368003F3172 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C49DF1751D58C368003F3172 /* CloudkitMapper.framework in Frameworks */,
+				458D7D0E1D91BA79004F958E /* ReactiveSwift.framework in Frameworks */,
+				458D7D0C1D91BA78004F958E /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +52,7 @@
 		C47EAB8A1D5A0CC900CF3429 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				458D7D0D1D91BA79004F958E /* ReactiveSwift.framework */,
 				C47EAB861D5A0CB300CF3429 /* ReactiveCocoa.framework */,
 				C47EAB871D5A0CB300CF3429 /* Result.framework */,
 				C49DF1891D58C41C003F3172 /* CloudKit.framework */,
@@ -93,7 +74,6 @@
 			isa = PBXGroup;
 			children = (
 				C49DF16A1D58C368003F3172 /* CloudkitMapper.framework */,
-				C49DF1741D58C368003F3172 /* CloudkitMapperTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,24 +149,6 @@
 			productReference = C49DF16A1D58C368003F3172 /* CloudkitMapper.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		C49DF1731D58C368003F3172 /* CloudkitMapperTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = C49DF1811D58C368003F3172 /* Build configuration list for PBXNativeTarget "CloudkitMapperTests" */;
-			buildPhases = (
-				C49DF1701D58C368003F3172 /* Sources */,
-				C49DF1711D58C368003F3172 /* Frameworks */,
-				C49DF1721D58C368003F3172 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				C49DF1771D58C368003F3172 /* PBXTargetDependency */,
-			);
-			name = CloudkitMapperTests;
-			productName = CloudkitMapperTests;
-			productReference = C49DF1741D58C368003F3172 /* CloudkitMapperTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,9 +161,7 @@
 				TargetAttributes = {
 					C49DF1691D58C368003F3172 = {
 						CreatedOnToolsVersion = 7.3;
-					};
-					C49DF1731D58C368003F3172 = {
-						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -218,20 +178,12 @@
 			projectRoot = "";
 			targets = (
 				C49DF1691D58C368003F3172 /* CloudkitMapper */,
-				C49DF1731D58C368003F3172 /* CloudkitMapperTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C49DF1681D58C368003F3172 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C49DF1721D58C368003F3172 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,23 +205,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C49DF1701D58C368003F3172 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C49DF17A1D58C368003F3172 /* CloudkitMapperTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		C49DF1771D58C368003F3172 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = C49DF1691D58C368003F3172 /* CloudkitMapper */;
-			targetProxy = C49DF1761D58C368003F3172 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		C49DF17C1D58C368003F3172 /* Debug */ = {
@@ -377,11 +313,13 @@
 				);
 				INFOPLIST_FILE = CloudkitMapper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ACP.CloudkitMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -399,30 +337,12 @@
 				);
 				INFOPLIST_FILE = CloudkitMapper/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ACP.CloudkitMapper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		C49DF1821D58C368003F3172 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CloudkitMapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ACP.CloudkitMapperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		C49DF1831D58C368003F3172 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = CloudkitMapperTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ACP.CloudkitMapperTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -443,15 +363,6 @@
 			buildConfigurations = (
 				C49DF17F1D58C368003F3172 /* Debug */,
 				C49DF1801D58C368003F3172 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		C49DF1811D58C368003F3172 /* Build configuration list for PBXNativeTarget "CloudkitMapperTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				C49DF1821D58C368003F3172 /* Debug */,
-				C49DF1831D58C368003F3172 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

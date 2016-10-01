@@ -9,12 +9,21 @@
 import Foundation
 import CloudKit
 
-public class CloudObject : NSObject {
+open class CloudObject : NSObject {
     
-    public var recordType:String = ""
-    public var record:CKRecord?
-    public var currentDatabase:CKDatabase
-    
+    open var recordType:String = ""
+    open var record:CKRecord?
+    open var currentDatabase:CKDatabase
+    open var createdAt:Date {
+        get {
+            return self.record?.creationDate ?? Date()
+        }
+    }
+    open var uniqueId: String {
+        get {
+            return self.record?.recordID.recordName ?? ""
+        }
+    }
     let container: CKContainer
     let publicDB: CKDatabase
     let privateDB: CKDatabase
@@ -24,29 +33,30 @@ public class CloudObject : NSObject {
     var referenceLists : [String : [CKReference]] = [:]
     
     public required override init() {
-        container = CKContainer.defaultContainer()
+        container = CKContainer.default()
         publicDB = container.publicCloudDatabase
         privateDB = container.privateCloudDatabase
         
         // Default is always current DB
         self.currentDatabase = publicDB
+        print("Database used ")
     }
     
     public func initializeRecord() {
         self.record = CKRecord(recordType: self.recordType)
     }
     
-    public func encode() -> NSData? {
+    public func encode() -> Data? {
         if let record = self.record {
-            let archivedObject = NSKeyedArchiver.archivedDataWithRootObject(record)
+            let archivedObject = NSKeyedArchiver.archivedData(withRootObject: record)
             return archivedObject
         }
         
         return nil
     }
     
-    public func decode(data:NSData) -> CloudObject? {
-        if let record = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? CKRecord {
+    public func decode(data:Data) -> CloudObject? {
+        if let record = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? CKRecord {
             self.record = record
             return self
         } else {
@@ -62,14 +72,14 @@ public class CloudObject : NSObject {
         if let record = self.record {
             let properties = propertyNames()
             for property in properties {
-                if let value = self.valueForKey(property) as? CKRecordValue {
+                if let value = self.value(forKey: property) as? CKRecordValue {
                     record[property] = value
                 } else {
                     //then it has to be another CloudObject. We need to update it as well.
-                    if let cloudObject = self.valueForKey(property) as? CloudObject  {
+                    if let cloudObject = self.value(forKey: property) as? CloudObject  {
                         cloudObject.updatedRecord()
                         if let recordCloud = cloudObject.record {
-                            let ref = CKReference(record:recordCloud, action:.None)
+                            let ref = CKReference(record:recordCloud, action:.none)
                             record[property] = ref
                         }
                         
@@ -87,7 +97,7 @@ public class CloudObject : NSObject {
         self.record = record
         let properties = propertyNames()
         for property in properties {
-            if (self.respondsToSelector(NSSelectorFromString(property))) {
+            if (self.responds(to: NSSelectorFromString(property))) {
                 if let ref = record[property] as? CKReference {
                     self.references[property] = ref
                 }
@@ -102,8 +112,8 @@ public class CloudObject : NSObject {
         var dependencies : [String : CKReference] = [:]
         let properties = propertyNames()
         for property in properties {
-            if (self.respondsToSelector(NSSelectorFromString(property))) {
-                if let value = record![property] where ((value as? CKReference) != nil) {
+            if (self.responds(to: NSSelectorFromString(property))) {
+                if let value = record![property] , ((value as? CKReference) != nil) {
                     dependencies[property] = value as? CKReference
                 }
             }
@@ -116,11 +126,19 @@ public class CloudObject : NSObject {
         var collect : [CloudObject] = []
         let properties = propertyNames()
         for property in properties {
-            if let value = self.valueForKey(property) as? CloudObject {
+            if let value = self.value(forKey: property) as? CloudObject {
                 collect.append(value)
             }
         }
         return collect
+    }
+    
+    public func incrementKey(name:String){
+    
+    }
+    
+    public func incrementKey(name:String, byAmount:Int){
+        
     }
 }
 

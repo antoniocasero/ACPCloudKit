@@ -9,7 +9,7 @@
 import UIKit
 import CloudKit
 import CloudkitMapper
-import ReactiveCocoa
+import ReactiveSwift
 
 class ViewController: UIViewController {
 
@@ -31,18 +31,15 @@ class ViewController: UIViewController {
         car.rac_deepSave().producer
         .on { error in
             print("\(error)")
-        }.startWithNext { 
+        }.startWithResult({ result in
             print("saved")
-        }
-        
+        })
         
         coordinator.deepFetch(nil)
         .producer
-        .startWithNext { object in
-            print("\(object)")
-
-        }
-        
+        .startWithResult({ result in
+            print("object")
+        })
     }
 
     override func didReceiveMemoryWarning() {

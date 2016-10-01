@@ -8,19 +8,19 @@
 
 import UIKit
 import CloudKit
-import ReactiveCocoa
+import ReactiveSwift
 
 class CloudLogin {
     
-    let defaultContainer: CKContainer = CKContainer.defaultContainer()
+    let defaultContainer: CKContainer = CKContainer.default()
     
     func rac_requestPermission() -> SignalProducer<Void,CloudError> {
         return SignalProducer { observer, _ in
-            self.defaultContainer.requestApplicationPermission(CKApplicationPermissions.UserDiscoverability, completionHandler: { applicationPermissionStatus, error in
-                if applicationPermissionStatus == CKApplicationPermissionStatus.Granted {
+            self.defaultContainer.requestApplicationPermission(CKApplicationPermissions.userDiscoverability, completionHandler: { applicationPermissionStatus, error in
+                if applicationPermissionStatus == CKApplicationPermissionStatus.granted {
                     observer.sendCompleted()
                 } else {
-                    observer.sendFailed(.errorUnathorized)
+                    observer.send(error: .errorUnathorized)
                 }
             })
         }

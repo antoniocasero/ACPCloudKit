@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import ReactiveCocoa
+import ReactiveSwift
 
-public class CloudCache<T:CloudObject> {
+open class CloudCache<T:CloudObject> {
     
-    var userDefaults = NSUserDefaults.standardUserDefaults()
+    var userDefaults = UserDefaults.standard
     var defaultKey = "CloudCache.DefaultKey"
     
     
-    public func rac_storeLocally<T:CloudObject>(data:[T], cachingKey:String? = nil) -> SignalProducer<Void, CloudError> {
+    open func rac_storeLocally<T:CloudObject>(_ data:[T], cachingKey:String? = nil) -> SignalProducer<Void, CloudError> {
         return SignalProducer<Void, CloudError> { observer, _ in
                 self.storeData(data , cachingKey: cachingKey, completion: { error in
                     observer.sendCompleted()
@@ -24,39 +24,39 @@ public class CloudCache<T:CloudObject> {
         
     }
     
-    public func storeData<T:CloudObject>(data:[T], cachingKey:String? = nil, completion: (error: CloudError) -> ()) {
+    open func storeData<T:CloudObject>(_ data:[T], cachingKey:String? = nil, completion: (_ error: CloudError) -> ()) {
         
-        var serializableObjects = Array<NSData>()
+        var serializableObjects = Array<Data>()
         
         for model in data {
             if let offlineObject = model.encode() {
-                serializableObjects.append(offlineObject)
+                serializableObjects.append(offlineObject as Data)
             }
         }
         
-        userDefaults.setObject(serializableObjects, forKey: cachingKey ?? defaultKey)
+        userDefaults.set(serializableObjects, forKey: cachingKey ?? defaultKey)
         userDefaults.synchronize()
     }
     
-    public func rac_restoreLocally<T:CloudObject>(cachingKey:String? = nil) -> SignalProducer<[T], CloudError> {
+    open func rac_restoreLocally<T:CloudObject>(_ cachingKey:String? = nil) -> SignalProducer<[T], CloudError> {
         return SignalProducer<[T], CloudError> { observer, _ in
                 let objects  = self.loadData(cachingKey ?? self.defaultKey)
-                observer.sendNext(objects as! [T])
+                observer.send(value: objects as! [T])
                 observer.sendCompleted()
         }
         
     }
     
-    public func loadData<T:CloudObject>(cachingKey:String? = nil) -> [T] {
+    open func loadData<T:CloudObject>(_ cachingKey:String? = nil) -> [T] {
         
         var models = Array<T>()
         
-        if let serializedObjects = userDefaults.objectForKey(cachingKey ?? defaultKey) as? Array<NSData> {
+        if let serializedObjects = userDefaults.object(forKey: cachingKey ?? defaultKey) as? Array<Data> {
             for serializeObject in serializedObjects {
                 
                 let cloudModel = T()
                 
-                if let cloudModel = cloudModel.decode(serializeObject) as? T {
+                if let cloudModel = cloudModel.decode(data: serializeObject) as? T {
                     models.append(cloudModel)
                 }
             }
@@ -67,8 +67,8 @@ public class CloudCache<T:CloudObject> {
         }
     }
     
-    public func decode<T:CloudObject>(data:NSData) -> [T] {
-        if let models = NSKeyedUnarchiver.unarchiveObjectWithData(data) as? Array<T> {
+    open func decode<T:CloudObject>(_ data:Data) -> [T] {
+        if let models = NSKeyedUnarchiver.unarchiveObject(with: data as Data) as? Array<T> {
             return models
         } else {
             return []
