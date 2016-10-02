@@ -8,7 +8,7 @@
 
 import UIKit
 import CloudKit
-import CloudkitMapper
+import ACPCloudKit
 import ReactiveSwift
 
 class ViewController: UIViewController {

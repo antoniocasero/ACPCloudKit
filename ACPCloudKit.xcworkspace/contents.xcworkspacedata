@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Example.xcodeproj">
+      location = "group:ACPCloudKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:CloudkitMapper.xcodeproj">
+      location = "group:Example.xcodeproj">
    </FileRef>
 </Workspace>

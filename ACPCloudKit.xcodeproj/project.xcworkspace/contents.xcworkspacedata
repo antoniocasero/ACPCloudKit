@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:CloudkitMapper.xcodeproj">
+      location = "self:/Users/Casero/Documents/cloudmapper/ACPCloudKit.xcodeproj">
    </FileRef>
 </Workspace>

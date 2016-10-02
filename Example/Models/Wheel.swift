@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CloudkitMapper
+import ACPCloudKit
 
 final  class Wheel : CloudObject {
     
